@@ -1,0 +1,517 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Web Layout</title>
+
+    <style>
+        body { margin: 0; font-family: Arial, sans-serif; }
+
+        .container {
+            display: flex;
+            width: 100%;
+        }
+
+        article {
+            padding: 20px;
+            width: 70%;
+            background-color: pink;
+            min-height: 300px;
+        }
+
+        .sidebar {
+            width: 30%;
+            background: pink;
+            padding: 20px;
+        }
+
+        .sidebar ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .sidebar ul li a {
+            display: block;
+            padding: 10px;
+            text-decoration: none;
+            color: black;
+        }
+
+        .sidebar ul li a:hover {
+            background: red;
+            color: white;
+        }
+
+        ul.nav {
+            display: flex;
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            background-color: pink;
+        }
+
+        ul.nav li {
+            position: relative;
+        }
+
+        ul.nav li a {
+            display: block;
+            color: white;
+            padding: 14px 16px;
+            text-decoration: none;
+        }
+
+        ul.nav li a:hover {
+            background-color: purple;
+            color: black;
+        }
+
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: pink;
+            min-width: 160px;
+        }
+
+        .dropdown-content a {
+            display: block;
+            padding: 12px 16px;
+            color: white;
+        }
+
+        .dropdown-content a:hover {
+            background-color: purple;
+            color: black;
+        }
+
+        .dropdown:hover .dropdown-content {
+            display: block;
+        }
+
+        header, footer {
+            background-color: purple;
+            padding: 10px;
+            text-align: center;
+            color: white;
+        }
+    </style>
+</head>
+
+<body>
+
+<header>
+    <h2>SDIHS</h2>
+    <h3 style="font-size:18px;">Santo Domingo Integrated High School</h3>
+</header>
+
+<ul class="nav">
+    <li><a href="#" onclick="loadContent('home')">Home</a></li>
+
+    <li class="dropdown">
+        <a href="#">Activities</a>
+        <div class="dropdown-content">
+            <a href="#" onclick="loadContent('activity1')">Activity 1</a>
+            <a href="#" onclick="loadContent('activity2')">Activity 2</a>
+        </div>
+    </li>
+
+    <li class="dropdown">
+        <a href="#">Assessment</a>
+        <div class="dropdown-content">
+            <a href="#" onclick="loadContent('assessment1')">Assessment 1</a>
+            <a href="#" onclick="loadContent('assessment2')">Assessment 2</a>
+        </div>
+    </li>
+
+    <li class="dropdown">
+        <a href="#">About</a>
+        <div class="dropdown-content">
+            <a href="#" onclick="loadContent('about')">Group Members</a>
+        </div>
+    </li>
+</ul>
+
+<section>
+<div class="container">
+
+<nav class="sidebar">
+    <ul>
+        <li><a href="#" onclick="loadContent('content')">Content</a></li>
+        <li><a href="#" onclick="loadContent('performance')">Performance Standard</a></li>
+        <li><a href="#" onclick="loadContent('standard')">Content Standard</a></li>
+        <li><a href="#" onclick="loadContent('competencies')">Learning Competencies</a></li>
+        <li><a href="#" onclick="loadContent('objectives')">Objectives</a></li>
+    </ul>
+</nav>
+
+<article id="content">
+    <h2>Mission</h2>
+            <p>To protect and promote the right of every Filipino to quality, equitable, culture-based, and complete basic education where: Students leatti in a child-fisendly, gender-sensitive, safe, and motivating environment. Teachers facilitate learning and coustastly nurture every learner. Administrators and staff, as stewinds of the initiation, ensure an enabling and supportive environment for effective learning to happen. Fremily, community, and other stakeholders are actively engaged and share responsibility for developing life-long learners..</p><br>
+ <h2>Vision</h2><br>
+<p>We dream of Filipinos who passionately love their country and whose values and competencies enable them to realize their full potential and contribute meaningfully to building the nation. As a learner-centered public institution, the Department of Education continuously improves itself to better serve its stakeholders.</p><br>
+    <h2>Core Values</h2><br>
+<p>Maka-Diyos<br>
+Maka-tao<br>
+Makakalikasan<br>
+Makabansa</p>
+</article>
+
+</div>
+</section>
+
+<footer>
+    <p>© 2025 SDIHS</p>
+</footer>
+
+<script>
+function loadContent(section) {
+    const content = document.getElementById("content");
+
+    if (section === "home") {
+        content.innerHTML = `
+            <h2>Mission</h2>
+            <p>To protect and promote the right of every Filipino to quality, equitable, culture-based, and complete basic education where: Students leatti in a child-fisendly, gender-sensitive, safe, and motivating environment. Teachers facilitate learning and coustastly nurture every learner. Administrators and staff, as stewinds of the initiation, ensure an enabling and supportive environment for effective learning to happen. Fremily, community, and other stakeholders are actively engaged and share responsibility for developing life-long learners..</p><br>
+ <h2>Vision</h2><br>
+<p>We dream of Filipinos who passionately love their country and whose values and competencies enable them to realize their full potential and contribute meaningfully to building the nation. As a learner-centered public institution, the Department of Education continuously improves itself to better serve its stakeholders.</p><br>
+    <h2>Core Values</h2><br>
+<p>Maka-Diyos<br>
+Maka-tao<br>
+Makakalikasan<br>
+Makabansa</p>
+            
+        `;
+    }
+
+    else if (section === "about") {
+        content.innerHTML = `
+            <h2>Group Members</h2>
+            <ul>
+                <li>Johnray Garcia</li>
+                <li>Jade Makilan</li>
+                <li>Nathan James De Quiros</li>
+                <li>Kurt Mana-ay</li>
+            </ul>
+        `;
+    }
+
+    else if (section === "activity1") {
+        content.innerHTML = `
+            <h2>Activity 1</h2>
+            <p>ICT Sectors, Trends, Successful People in the ICT Field, and Workplace Risks</p>
+        `;
+    }
+
+    else if (section === "activity2") {
+        content.innerHTML = `
+            <h2>Activity 2</h2>
+            <p>Create an ICT Student Profile document.</p>
+        `;
+    }
+
+    else if (section === "assessment1") {
+        content.innerHTML = `
+            <h2>Assessment 1</h2>
+            <p>Word Processing Quiz</p>
+        `;
+    }
+
+    else if (section === "assessment2") {
+        content.innerHTML = `
+            <h2>Assessment 2</h2>
+            <p>Performance-based assessment</p>
+        `;
+    }
+
+    else if (section === "content") {
+    content.innerHTML = `
+        <h2>Content</h2>
+        <h2>ICT Sectors, Trends, Successful People in the ICT Field, and Workplace Risks</h2>
+        <h3>ICT Sectors</h3>
+        <p>ICT (Information and Communications Technology) is divided into several key sectors:</p>
+        <p><strong>Software Development</strong> – Creating apps, websites, games, and software solutions.</p>
+        <p><strong>Hardware & Networking</strong> – Building computers, servers, and network systems.</p>
+        <p><strong>Telecommunications</strong> – Providing phone and internet services.</p>
+        <p><strong>IT Support & Maintenance</strong> – Fixing technical problems and ensuring systems run smoothly.</p>
+        <p><strong>Cybersecurity</strong> – Protecting systems from hacking and cyber threats.</p>
+        <p><strong>Data Management</strong> – Collecting, storing, and analyzing data.</p>
+
+        <h3>ICT Trends</h3>
+        <p>ICT trends are the latest developments in technology:</p>
+        <p><strong>Artificial Intelligence (AI)</strong> – Technology that helps machines think and learn.</p>
+        <p><strong>Cloud Computing</strong> – Using internet servers to store and access data.</p>
+        <p><strong>Internet of Things (IoT)</strong> – Smart devices connected through the internet.</p>
+        <p><strong>Big Data</strong> – Large amounts of information used for decision making.</p>
+        <p><strong>Virtual Reality (VR) & Augmented Reality (AR)</strong> – Immersive digital experiences.</p>
+        <p><strong>Blockchain</strong> – Secure digital transaction system used in cryptocurrencies.</p>
+        <p><strong>5G Technology</strong> – Faster internet and improved connectivity.</p>
+
+        <h3>Successful People in the ICT Field</h3>
+        <p><strong>Bill Gates</strong> – Co-founder of Microsoft, pioneer in software development.</p>
+        <p><strong>Steve Jobs</strong> – Co-founder of Apple, innovator in consumer electronics.</p>
+        <p><strong>Mark Zuckerberg</strong> – Founder of Facebook, known for social media platforms.</p>
+        <p><strong>Elon Musk</strong> – CEO of Tesla & SpaceX, known for AI and advanced technology.</p>
+        <p><strong>Linus Torvalds</strong> – Creator of Linux, popular open-source operating system.</p>
+        <p><strong>Grace Hopper</strong> – Pioneer in programming and development of COBOL.</p>
+
+        <h3>Workplace Risks in ICT</h3>
+        <p><strong>Eye Strain</strong> – Caused by long screen time.</p>
+        <p><strong>Back and Neck Pain</strong> – Due to poor posture and long sitting.</p>
+        <p><strong>Stress and Burnout</strong> – Because of tight deadlines and workload.</p>
+        <p><strong>Cybersecurity Threats</strong> – Risk of hacking and data breaches.</p>
+        <p><strong>Physical Injury</strong> – Repetitive strain injury from typing.</p>
+        <p><strong>Data Loss</strong> – Loss of files due to system errors or viruses.</p>
+
+        <h3>Important Reminder</h3>
+        <p>To stay safe and healthy in ICT work:</p>
+        <p>Take breaks every 20–30 minutes.</p>
+        <p>Practice proper posture.</p>
+        <p>Use strong passwords.</p>
+        <p>Always back up files.</p>
+    `;
+}
+
+    else if (section === "performance") {
+        content.innerHTML = `
+            <h2>Performance Standard</h2>
+            <p>The student is able to analyze and explain the different sectors of ICT and their related career and business opportunities, and to create a simple output or presentation that shows the role and importance of ICT in daily life and in future professions.
+            </p>
+        `;
+    }
+
+    else if (section === "standard") {
+        content.innerHTML = `
+            <h2>Content Standard</h2>
+            <p>Students demonstrate an understanding of the concept and scope of ICT, its sectors, and the importance of ICT in modern society, including job opportunities and the associated risks in the ICT workplace.
+            </p>
+        `;
+    }
+
+    else if (section === "competencies") {
+        content.innerHTML = `
+            <h2>Learning Competencies</h2>
+            <ul>
+                <li>Explains the meaning and scope of ICT</li>
+<li>Identifies the different sectors of ICT and their functions</li>
+<li>Describes the possible jobs and career paths in each ICT sector</li>
+<li>Explains the importance of ICT in the economy, business, and society</li>
+<li>Identifies the skills and competencies needed in ICT careers</li>
+<li>Recognizes the risks in the ICT workplace and the proper ways to avoid them</li>
+            </ul>
+        `;
+    }
+
+    else if (section === "objectives") {
+        content.innerHTML = `
+            <h2>Objectives</h2>
+            <ol>
+               <li>Provides a clear definition of ICT</li>
+<li>Lists and explains at least four (4) sectors of ICT</li>
+<li>Gives examples of jobs and careers in each ICT sector</li>
+<li>Expresses personal views on the importance of ICT in the future</li>
+<li>Analyzes the benefits and risks of working in the ICT field</li>
+            </ol>
+        `;
+    }
+}
+</script>
+
+<script>
+function loadContent(section) {
+    const content = document.getElementById("content");
+
+    if (section === "home") {
+        content.innerHTML = `
+           <h2>Mission</h2>
+            <p>To protect and promote the right of every Filipino to quality, equitable, culture-based, and complete basic education where: Students leatti in a child-fisendly, gender-sensitive, safe, and motivating environment. Teachers facilitate learning and coustastly nurture every learner. Administrators and staff, as stewinds of the initiation, ensure an enabling and supportive environment for effective learning to happen. Fremily, community, and other stakeholders are actively engaged and share responsibility for developing life-long learners..</p><br>
+ <h2>Vision</h2><br>
+<p>We dream of Filipinos who passionately love their country and whose values and competencies enable them to realize their full potential and contribute meaningfully to building the nation. As a learner-centered public institution, the Department of Education continuously improves itself to better serve its stakeholders.</p><br>
+    <h2>Core Values</h2><br>
+<p>Maka-Diyos<br>
+Maka-tao<br>
+Makakalikasan<br>
+Makabansa</p>
+        `;
+    }
+
+    else if (section === "about") {
+        content.innerHTML = `
+            <h2>Group Members</h2>
+            <ul>
+                <li>Johnray Garcia</li>
+                <li>Jade Makilan</li>
+                <li>Nathan James De Quiros</li>
+                <li>Kurt Mana-ay</li>
+                 <li>Darwin dave Magante</li>
+            </ul>
+        `;
+    }
+
+    /* ACTIVITIES */
+    else if (section === "activity1") {
+        content.innerHTML = `
+            <h2>Activity 1: ICT Questions</h2>
+         <p><strong>Instructions:</strong> Answer the following 5 questions:</p>
+<ol>
+    <li>What is ICT and why is it important?</li>
+    <li>Give one ICT sector and explain what it does.</li>
+    <li>Mention one ICT trend that is used daily.</li>
+    <li>Who is a successful person in the ICT field and why are they successful?</li>
+    <li>What is one risk in the ICT workplace and how can it be avoided?</li>
+</ol>
+        `;
+    }
+
+    else if (section === "activity2") {
+        content.innerHTML = `
+            <h2>Activity 2: ICT Dream Job</h2>
+      <p><strong>Instructions:</strong> Answer the following 5 questions in 1 to 2 sentences each:</p>
+<ol>
+    <li>What ICT tool do you use for studying?</li>
+    <li>How does ICT help in business?</li>
+    <li>Give an example of a career in the ICT field.</li>
+    <li>Why is cloud computing important for students and professionals?</li>
+    <li>How can you show safe and responsible use of ICT?</li>
+</ol>
+        `;
+    }
+
+    /* ASSESSMENTS */
+    else if (section === "assessment1") {
+        content.innerHTML = `
+            <h2>Assessment 1: Multiple Choice</h2>
+            <p><strong>Panuto:</strong> Piliin ang tamang sagot:</p>
+            <ol>
+         <p><strong>Instructions:</strong> Choose the correct answer:</p>
+<ol>
+    <li>What do you call the protection of data and computers?
+        <br>a. Cloud Computing &nbsp;&nbsp; b. Cybersecurity &nbsp;&nbsp; c. IoT &nbsp;&nbsp; d. Data Analytics
+    </li>
+    <li>Which of the following is an example of an ICT job?
+        <br>a. Software Developer &nbsp;&nbsp; b. Farmer &nbsp;&nbsp; c. Player &nbsp;&nbsp; d. Cook
+    </li>
+    <li>What do you call the use of the internet to save files online?
+        <br>a. Cloud Computing &nbsp;&nbsp; b. Cybersecurity &nbsp;&nbsp; c. IoT &nbsp;&nbsp; d. Data Analytics
+    </li>
+    <li>Why is ICT important to students?
+        <br>a. For gaming only &nbsp;&nbsp; b. For learning and information &nbsp;&nbsp; c. For entertainment &nbsp;&nbsp; d. For competition only
+    </li>
+    <li>What is one risk in the ICT workplace?
+        <br>a. Data hacking &nbsp;&nbsp; b. Earthquake &nbsp;&nbsp; c. Storm &nbsp;&nbsp; d. Playing
+   
+                </li>
+            </ol>
+        `;
+    }
+
+    else if (section === "assessment2") {
+        content.innerHTML = `
+            <h2>Assessment 2: Short Answer</h2>
+            <p><strong>Instructions:</strong> Answer each question in 1 to 2 sentences:</p>
+<ol>
+    <li>What is the primary purpose of ICT?</li>
+    <li>Give two examples of ICT careers.</li>
+    <li>What is the Internet of Things (IoT)?</li>
+    <li>Give one ICT trend that helps in your life.</li>
+    <li>How can risks in using ICT be avoided?</li>
+</ol>
+            </ol>
+        `;
+    }
+
+    /* LESSON PARTS */
+    else if (section === "content") {
+        content.innerHTML = `
+            <h2>Content</h2>
+        <h2>ICT Sectors, Trends, Successful People in the ICT Field, and Workplace Risks</h2>
+        <h3>ICT Sectors</h3>
+        <p>ICT (Information and Communications Technology) is divided into several key sectors:</p>
+        <p><strong>Software Development</strong> – Creating apps, websites, games, and software solutions.</p>
+        <p><strong>Hardware & Networking</strong> – Building computers, servers, and network systems.</p>
+        <p><strong>Telecommunications</strong> – Providing phone and internet services.</p>
+        <p><strong>IT Support & Maintenance</strong> – Fixing technical problems and ensuring systems run smoothly.</p>
+        <p><strong>Cybersecurity</strong> – Protecting systems from hacking and cyber threats.</p>
+        <p><strong>Data Management</strong> – Collecting, storing, and analyzing data.</p>
+
+        <h3>ICT Trends</h3>
+        <p>ICT trends are the latest developments in technology:</p>
+        <p><strong>Artificial Intelligence (AI)</strong> – Technology that helps machines think and learn.</p>
+        <p><strong>Cloud Computing</strong> – Using internet servers to store and access data.</p>
+        <p><strong>Internet of Things (IoT)</strong> – Smart devices connected through the internet.</p>
+        <p><strong>Big Data</strong> – Large amounts of information used for decision making.</p>
+        <p><strong>Virtual Reality (VR) & Augmented Reality (AR)</strong> – Immersive digital experiences.</p>
+        <p><strong>Blockchain</strong> – Secure digital transaction system used in cryptocurrencies.</p>
+        <p><strong>5G Technology</strong> – Faster internet and improved connectivity.</p>
+
+        <h3>Successful People in the ICT Field</h3>
+        <p><strong>Bill Gates</strong> – Co-founder of Microsoft, pioneer in software development.</p>
+        <p><strong>Steve Jobs</strong> – Co-founder of Apple, innovator in consumer electronics.</p>
+        <p><strong>Mark Zuckerberg</strong> – Founder of Facebook, known for social media platforms.</p>
+        <p><strong>Elon Musk</strong> – CEO of Tesla & SpaceX, known for AI and advanced technology.</p>
+        <p><strong>Linus Torvalds</strong> – Creator of Linux, popular open-source operating system.</p>
+        <p><strong>Grace Hopper</strong> – Pioneer in programming and development of COBOL.</p>
+
+        <h3>Workplace Risks in ICT</h3>
+        <p><strong>Eye Strain</strong> – Caused by long screen time.</p>
+        <p><strong>Back and Neck Pain</strong> – Due to poor posture and long sitting.</p>
+        <p><strong>Stress and Burnout</strong> – Because of tight deadlines and workload.</p>
+        <p><strong>Cybersecurity Threats</strong> – Risk of hacking and data breaches.</p>
+        <p><strong>Physical Injury</strong> – Repetitive strain injury from typing.</p>
+        <p><strong>Data Loss</strong> – Loss of files due to system errors or viruses.</p>
+
+        <h3>Important Reminder</h3>
+        <p>To stay safe and healthy in ICT work:</p>
+        <p>Take breaks every 20–30 minutes.</p>
+        <p>Practice proper posture.</p>
+        <p>Use strong passwords.</p>
+        <p>Always back up files.</p>
+        `;
+    }
+
+    else if (section === "performance") {
+        content.innerHTML = `
+            <h2>Performance Standard</h2>
+            <p>
+            The student is able to analyze and explain the different sectors of ICT and their related career and business opportunities, and to create a simple output or presentation that shows the role and importance of ICT in daily life and in future professions.
+            </p>
+        `;
+    }
+
+    else if (section === "standard") {
+        content.innerHTML = `
+            <h2>Content Standard</h2>
+            <p>
+            Students demonstrate an understanding of the concept and scope of ICT, its sectors, and the importance of ICT in modern society, including job opportunities and the associated risks in the ICT workplace.
+            </p>
+        `;
+    }
+
+    else if (section === "competencies") {
+        content.innerHTML = `
+            <h2>Learning Competencies</h2>
+            <ul>
+               <li>Explains the meaning and scope of ICT</li>
+<li>Identifies the different sectors of ICT and their functions</li>
+<li>Describes possible jobs and career paths in each ICT sector</li>
+<li>Explains the importance of ICT in the economy, business, and society</li>
+<li>Identifies the skills and competencies needed for ICT careers</li>
+<li>Recognizes the risks in the ICT workplace and the proper ways to avoid them</li>
+            </ul>
+        `;
+    }
+
+    else if (section === "objectives") {
+        content.innerHTML = `
+            <h2>Objectives</h2>
+            <ol>
+               <li>Provides a clear definition of ICT</li>
+<li>Lists and explains at least four (4) sectors of ICT</li>
+<li>Gives examples of jobs and careers in each ICT sector</li>
+<li>Expresses personal views about the importance of ICT in the future</li>
+<li>Analyzes the benefits and risks of working in the ICT field</li>
+            </ol>
+        `;
+    }
+}
+</script>
+
+</body>
+</html>
